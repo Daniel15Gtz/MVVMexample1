@@ -1,4 +1,5 @@
-package com.example.mvvmrickmorty.utils.api
+package com.example.rickmorty.utils.api
+
 
 data class Resource<out T>(val status: Status, val data: T?, val error: ErrorModel?) {
     companion object {

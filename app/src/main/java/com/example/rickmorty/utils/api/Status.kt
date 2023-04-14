@@ -1,4 +1,4 @@
-package com.example.mvvmrickmorty.utils.api
+package com.example.rickmorty.utils.api
 
 enum class Status {
     SUCCESS,

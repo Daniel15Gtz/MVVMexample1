@@ -1,4 +1,4 @@
-package com.example.mvvmrickmorty.utils.api
+package com.example.rickmorty.utils.api
 
 import com.google.gson.Gson
 import okhttp3.logging.HttpLoggingInterceptor
@@ -6,7 +6,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-object ApiManagerFactory {
+class ApiManagerFactory {
+
     fun makeRetrofitService(baseUrl: String): ApiService {
         val okHttpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient()
             .connectTimeout(60L  , TimeUnit.SECONDS)

@@ -1,8 +1,7 @@
-package com.example.mvvmrickmorty.utils.api;
+package com.example.rickmorty.utils.api;
+
 
 import android.util.Log;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;

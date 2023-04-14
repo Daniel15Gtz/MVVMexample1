@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_rickmorty"
+    app:startDestination="@id/rickmortyListFragment">
+
+    <fragment
+        android:id="@+id/rickmortyListFragment"
+        android:name="com.example.rickmorty.views.RickMortyListFragment"
+        android:label="fragment_rickmorty_list"
+        tools:layout="@layout/fragment_rickmorty_list" >
+
+        <action
+            android:id="@+id/action_rickmortyListFragment_to_rickmortyDetailFragment"
+            app:destination="@id/rickmortyDetailFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/rickmortyDetailFragment"
+        android:name="com.example.rickmorty.views.RickMortyDetailFragment"
+        android:label="fragment_rickmorty_detail"
+        tools:layout="@layout/fragment_rickmorty_detail" >
+    </fragment>
+</navigation>

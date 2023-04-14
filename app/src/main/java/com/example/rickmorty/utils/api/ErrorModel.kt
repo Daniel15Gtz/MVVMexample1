@@ -1,4 +1,4 @@
-package com.example.mvvmrickmorty.utils.api
+package com.example.rickmorty.utils.api
 
 class ErrorModel(var type: Type, val message: String, val detailType: String? = null) {
 

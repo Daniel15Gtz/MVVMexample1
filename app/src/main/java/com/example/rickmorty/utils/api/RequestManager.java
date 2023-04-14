@@ -1,7 +1,8 @@
-package com.example.mvvmrickmorty.utils.api;
+package com.example.rickmorty.utils.api;
 
-import java.util.concurrent.TimeUnit;
+
 import com.google.gson.Gson;
+
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -38,7 +39,7 @@ public class RequestManager {
     public <T> T create(Class<T> service) {
         HttpLoggingInterceptor interceptorLogger = new HttpLoggingInterceptor();
         interceptorLogger.setLevel(Level.BODY);
-        okhttp3.OkHttpClient.Builder httpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient();
+        OkHttpClient.Builder httpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient();
         httpClient.addInterceptor(interceptorLogger);
         this.retrofit.client(httpClient.build());
         return this.retrofit.build().create(service);

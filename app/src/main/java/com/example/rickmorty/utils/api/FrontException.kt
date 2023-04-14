@@ -1,4 +1,4 @@
-package com.example.mvvmrickmorty.utils.api
+package com.example.rickmorty.utils.api
 
 import java.io.IOException
 

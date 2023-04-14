@@ -1,4 +1,4 @@
-package com.example.mvvmrickmorty
+package com.example.rickmorty
 
 import org.junit.Test
 
