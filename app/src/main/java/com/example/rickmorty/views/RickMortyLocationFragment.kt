@@ -15,18 +15,19 @@ import com.example.rickmorty.utils.api.Status
 import com.example.rickmorty.utils.dto.RickMortyModel
 import com.example.rickmorty.viewmodel.RickMortyViewModel
 import com.example.rickmorty.views.adapter.RickMortyListAdapter
+import com.example.rickmorty.views.adapter.RickMortyLocationListAdapter
 import kotlinx.android.synthetic.main.fragment_rickmorty_list.*
 
 class RickMortyLocationFragment : Fragment() {
 
     private lateinit var viewmodel : RickMortyViewModel
 
-    private val rickmortyListObserver =  Observer<Resource<List<RickMortyModel>>>{
+    private val locationObserver =  Observer<Resource<List<RickMortyModel>>>{
         when (it.status){
             Status.LOADING->{
             }
             Status.SUCCESS->{
-                val adapter = RickMortyListAdapter(it.data!!)
+                val adapter = RickMortyLocationListAdapter(it.data!!)
                 rv_rickmorty_list.adapter = adapter
             }
             Status.ERROR->{
@@ -43,7 +44,7 @@ class RickMortyLocationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_rickmorty_list, container, false)
+        return inflater.inflate(R.layout.fragment_location_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -63,6 +64,6 @@ class RickMortyLocationFragment : Fragment() {
     }
 
     private fun createObservers() {
-        viewmodel.rickmortyList.observe(viewLifecycleOwner,rickmortyListObserver)
+        viewmodel.rickmortyListLocation.observe(viewLifecycleOwner,locationObserver)
     }
 }

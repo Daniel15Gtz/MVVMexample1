@@ -9,7 +9,7 @@ import com.example.rickmorty.utils.dto.RickMortyModel
 import kotlinx.android.synthetic.main.item_rickmorty_list.view.*
 
 //class RickMortyLocationListAdapter
-class RickMortyLocationListAdapter(val character : List<RickMortyModel>) : RecyclerView.Adapter<RickMortyLocationListAdapter.ViewHolder>(){
+class RickMortyLocationListAdapter(val location : List<RickMortyModel>) : RecyclerView.Adapter<RickMortyLocationListAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -19,11 +19,11 @@ class RickMortyLocationListAdapter(val character : List<RickMortyModel>) : Recyc
     }
 
     override fun onBindViewHolder(holder: RickMortyLocationListAdapter.ViewHolder, position: Int) {
-        holder.setViewItem(position, character[position])
+        holder.setViewItem(position, location[position])
     }
 
     override fun getItemCount(): Int {
-        return character.size
+        return location.size
     }
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view){

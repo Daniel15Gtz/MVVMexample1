@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/rickmortyListFragment"
-        android:name="com.example.rickmorty.views.RickMortyListFragment"
+        android:name="com.example.rickmorty.views.RickMortyCharactersFragment"
         android:label="fragment_rickmorty_list"
         tools:layout="@layout/fragment_rickmorty_list" >
 
@@ -20,7 +20,7 @@
 
     <fragment
     android:id="@+id/rickmortyDetailFragment"
-    android:name="com.example.rickmorty.views.RickMortyDetailFragment"
+    android:name="com.example.rickmorty.views.RickMortyEpisodesFragment"
     android:label="fragment_rickmorty_detail"
     tools:layout="@layout/fragment_episodes_list" >
     <action
