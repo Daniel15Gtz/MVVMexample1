@@ -19,9 +19,22 @@
 
 
     <fragment
-        android:id="@+id/rickmortyDetailFragment"
-        android:name="com.example.rickmorty.views.RickMortyDetailFragment"
+    android:id="@+id/rickmortyDetailFragment"
+    android:name="com.example.rickmorty.views.RickMortyDetailFragment"
+    android:label="fragment_rickmorty_detail"
+    tools:layout="@layout/fragment_episodes_list" >
+    <action
+        android:id="@+id/action_rickmortyDetailFragment_to_rickmortyListFragment"
+        app:destination="@id/rickmortyLocationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rickmortyLocationFragment"
+        android:name="com.example.rickmorty.views.RickMortyLocationFragment"
         android:label="fragment_rickmorty_detail"
-        tools:layout="@layout/fragment_rickmorty_detail" >
+        tools:layout="@layout/fragment_location_list" >
+        <action
+            android:id="@+id/action_rickmortyDetailFragment_to_rickmortyListFragment"
+            app:destination="@id/rickmortyListFragment" />
     </fragment>
 </navigation>

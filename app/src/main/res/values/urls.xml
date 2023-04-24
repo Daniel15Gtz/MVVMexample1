@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="service_rickmorty">rickmorty/</string>
+    <string name="service_rickmorty">character/</string>
+    <string name="service_rickmorty_episodes">episode/</string>
+    <string name="service_rickmorty_location">location/</string>
 </resources>

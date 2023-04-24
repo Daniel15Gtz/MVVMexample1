@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.rickmorty.R
+
+
 import com.example.rickmorty.viewmodel.RickMortyViewModel
 
 class MainActivity : AppCompatActivity() {

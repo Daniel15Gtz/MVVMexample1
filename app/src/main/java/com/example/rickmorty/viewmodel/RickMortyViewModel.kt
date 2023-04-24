@@ -13,14 +13,34 @@ import kotlinx.coroutines.withContext
 class RickMortyViewModel  : ViewModel(){
     private val rickmortyRepository = RickMortyRepository()
     val rickmortyList = MutableLiveData<Resource<List<RickMortyModel>>>()
+    val rickmortyListEpisodes = MutableLiveData<Resource<List<RickMortyModel>>>()
+    val rickmortyListLocation = MutableLiveData<Resource<List<RickMortyModel>>>()
 
     fun getRickMorty(){
-
         rickmortyList.value =  Resource.loading(null)
         viewModelScope.launch {
             val result = rickmortyRepository.getRickMorty()
             withContext(Dispatchers.Main){
                 rickmortyList.value = result
+            }
+        }
+    }
+    fun getRickMortyEpisodes(){
+        rickmortyListEpisodes.value =  Resource.loading(null)
+        viewModelScope.launch {
+            val result = rickmortyRepository.getRickMortyEpisodes()
+            withContext(Dispatchers.Main){
+                rickmortyListEpisodes.value = result
+            }
+        }
+    }
+
+    fun getRickMortyLocation(){
+        rickmortyListLocation.value =  Resource.loading(null)
+        viewModelScope.launch {
+            val result = rickmortyRepository.getRickMortyLocation()
+            withContext(Dispatchers.Main){
+                rickmortyListLocation.value = result
             }
         }
     }

@@ -14,12 +14,10 @@ import com.example.rickmorty.utils.api.Resource
 import com.example.rickmorty.utils.api.Status
 import com.example.rickmorty.utils.dto.RickMortyModel
 import com.example.rickmorty.viewmodel.RickMortyViewModel
-import com.example.rickmorty.views.adapter.RickMortyEpisodesListAdapter
+import com.example.rickmorty.views.adapter.RickMortyListAdapter
 import kotlinx.android.synthetic.main.fragment_rickmorty_list.*
 
-class RickMortyDetailFragment  : Fragment() {
-
-
+class RickMortyLocationFragment : Fragment() {
 
     private lateinit var viewmodel : RickMortyViewModel
 
@@ -28,7 +26,7 @@ class RickMortyDetailFragment  : Fragment() {
             Status.LOADING->{
             }
             Status.SUCCESS->{
-                val adapter = RickMortyEpisodesListAdapter(it.data!!)
+                val adapter = RickMortyListAdapter(it.data!!)
                 rv_rickmorty_list.adapter = adapter
             }
             Status.ERROR->{
@@ -45,28 +43,26 @@ class RickMortyDetailFragment  : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_episodes_list, container, false)
+        return inflater.inflate(R.layout.fragment_rickmorty_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         createObservers()
         addActions()
-        viewmodel.getRickMortyEpisodes()
+        viewmodel.getRickMortyLocation()
         rv_rickmorty_list.layoutManager = LinearLayoutManager(requireContext())
     }
 
     fun addActions(){
-        tv_title_fragment_rickmorty.setText("Episodes")
-        btn_fragment_rickmorty_siguiente.setText("Regresar location")
+        tv_title_fragment_rickmorty.setText("Location")
+        btn_fragment_rickmorty_siguiente.setText("Continuar Characters")
         btn_fragment_rickmorty_siguiente.setOnClickListener {
             findNavController().navigate(R.id.action_rickmortyDetailFragment_to_rickmortyListFragment)
         }
     }
 
     private fun createObservers() {
-        viewmodel.rickmortyListEpisodes.observe(viewLifecycleOwner,rickmortyListObserver)
+        viewmodel.rickmortyList.observe(viewLifecycleOwner,rickmortyListObserver)
     }
-
-
 }
