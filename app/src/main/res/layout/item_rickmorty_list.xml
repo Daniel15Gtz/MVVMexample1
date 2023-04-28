@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_item_rickmorty_list_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -47,7 +48,7 @@
                 app:layout_constraintGuide_end="16dp" />
 
             <TextView
-                android:id="@+id/tv_item_pokemon_list_number"
+                android:id="@+id/tv_item_rickmorty_list_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -56,14 +57,14 @@
                 app:layout_constraintTop_toTopOf="@+id/gl_item_pokemon_list_top" />
 
             <TextView
-                android:id="@+id/tv_item_pokemon_list_name"
+                android:id="@+id/tv_item_rickmorty_list_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toTopOf="@+id/gl_item_pokemon_list_bottom"
                 app:layout_constraintEnd_toStartOf="@+id/gl_item_pokemon_list_right"
-                app:layout_constraintStart_toEndOf="@+id/tv_item_pokemon_list_number"
+                app:layout_constraintStart_toEndOf="@+id/tv_item_rickmorty_list_number"
                 app:layout_constraintTop_toTopOf="@+id/gl_item_pokemon_list_top" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

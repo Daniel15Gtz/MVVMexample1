@@ -8,7 +8,10 @@ import com.example.rickmorty.R
 import com.example.rickmorty.utils.dto.RickMortyModel
 import kotlinx.android.synthetic.main.item_rickmorty_list.view.*
 
-class RickMortyListAdapter(val character : List<RickMortyModel>) : RecyclerView.Adapter<RickMortyListAdapter.ViewHolder>(){
+class RickMortyListAdapter(val character : List<RickMortyModel>, val listener : OnItemClickListener) : RecyclerView.Adapter<RickMortyListAdapter.ViewHolder>(){
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -18,7 +21,7 @@ class RickMortyListAdapter(val character : List<RickMortyModel>) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: RickMortyListAdapter.ViewHolder, position: Int) {
-        holder.setViewItem(position, character[position])
+        holder.setViewItem(position, character[position], listener)
     }
 
     override fun getItemCount(): Int {
@@ -27,9 +30,12 @@ class RickMortyListAdapter(val character : List<RickMortyModel>) : RecyclerView.
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view){
 
-        fun setViewItem(position: Int, pokemonModel: RickMortyModel) {
-            view.tv_item_pokemon_list_number.text = "$position.-"
-            view.tv_item_pokemon_list_name.text = pokemonModel.name
+        fun setViewItem(position: Int, rickmortyModel: RickMortyModel, listener: OnItemClickListener) {
+            view.tv_item_rickmorty_list_number.text = "$position.-"
+            view.tv_item_rickmorty_list_name.text = rickmortyModel.name
+            view.cv_item_rickmorty_list_container.setOnClickListener{
+                listener.onItemClick(position)
+            }
         }
     }
 }

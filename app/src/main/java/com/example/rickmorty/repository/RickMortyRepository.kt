@@ -37,4 +37,12 @@ class RickMortyRepository {
             Resource(Status.ERROR, null, ErrorModel(ErrorModel.Type.TOLERABLE, "No se pudo consultar el servicio, intente nuevamente"))
         }
     }
+    suspend fun getCharacter(position: Int): Resource<RickMortyModel> {
+        return try {
+            val response = service.getDetailCharacter(application.getString(R.string.service_rickmorty)+position)
+            Resource(Status.SUCCESS, response.body(), null)
+        } catch (e: Exception) {
+            Resource(Status.ERROR, null, ErrorModel(ErrorModel.Type.TOLERABLE, "No se pudo consultar el servicio, intente nuevamente"))
+        }
+    }
 }

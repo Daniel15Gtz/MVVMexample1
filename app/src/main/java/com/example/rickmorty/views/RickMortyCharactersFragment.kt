@@ -28,7 +28,13 @@ class RickMortyCharactersFragment  : Fragment() {
             Status.LOADING->{
             }
             Status.SUCCESS->{
-                val adapter = RickMortyListAdapter(it.data!!)
+                val adapter = RickMortyListAdapter(it.data!!, object : RickMortyListAdapter.OnItemClickListener{
+                    override fun onItemClick(position: Int) {
+                        viewmodel.setSelectCharacter(position)
+                        findNavController().navigate(R.id.action_rickmortyCharacterFragment_to_rickmortyDetails)
+                    }
+
+                })
                 rv_rickmorty_list.adapter = adapter
             }
             Status.ERROR->{

@@ -26,9 +26,9 @@ class RickMortyEpisodesListAdapter (val episodes : List<RickMortyModel>) : Recyc
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view){
 
-        fun setViewItem(position: Int, pokemonModel: RickMortyModel) {
-            view.tv_item_pokemon_list_number.text = "$position.-"
-            view.tv_item_pokemon_list_name.text = pokemonModel.name
+        fun setViewItem(position: Int, rickmortyModel: RickMortyModel) {
+            view.tv_item_rickmorty_list_number.text = "$position.-"
+            view.tv_item_rickmorty_list_name.text = rickmortyModel.name
         }
     }
 }

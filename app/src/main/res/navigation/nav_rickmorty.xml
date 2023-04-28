@@ -4,24 +4,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_rickmorty"
-    app:startDestination="@id/rickmortyListFragment">
+    app:startDestination="@id/rickmortyCharacterFragment">
 
     <fragment
-        android:id="@+id/rickmortyListFragment"
+        android:id="@+id/rickmortyCharacterFragment"
         android:name="com.example.rickmorty.views.RickMortyCharactersFragment"
         android:label="fragment_rickmorty_list"
         tools:layout="@layout/fragment_rickmorty_list" >
 
         <action
             android:id="@+id/action_rickmortyListFragment_to_rickmortyDetailFragment"
-            app:destination="@id/rickmortyDetailFragment" />
+            app:destination="@id/rickmortyEpisodesFragment" />
+        <action
+            android:id="@+id/action_rickmortyCharacterFragment_to_rickmortyDetails"
+            app:destination="@id/rickmortyDetails" />
     </fragment>
 
-
     <fragment
-    android:id="@+id/rickmortyDetailFragment"
+    android:id="@+id/rickmortyEpisodesFragment"
     android:name="com.example.rickmorty.views.RickMortyEpisodesFragment"
-    android:label="fragment_rickmorty_detail"
+    android:label="episodes"
     tools:layout="@layout/fragment_episodes_list" >
     <action
         android:id="@+id/action_rickmortyDetailFragment_to_rickmortyListFragment"
@@ -31,10 +33,18 @@
     <fragment
         android:id="@+id/rickmortyLocationFragment"
         android:name="com.example.rickmorty.views.RickMortyLocationFragment"
-        android:label="fragment_rickmorty_detail"
+        android:label="location"
         tools:layout="@layout/fragment_location_list" >
         <action
             android:id="@+id/action_rickmortyDetailFragment_to_rickmortyListFragment"
-            app:destination="@id/rickmortyListFragment" />
+            app:destination="@id/rickmortyCharacterFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/rickmortyDetails"
+        android:name="com.example.rickmorty.views.RickMortyDetailsFragment"
+        android:label="New Fragment"
+        tools:layout="@layout/fragment_detail_characters" >
+    </fragment>
+
 </navigation>

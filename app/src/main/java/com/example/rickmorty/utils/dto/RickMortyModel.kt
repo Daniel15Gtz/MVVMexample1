@@ -6,5 +6,8 @@ data class RickMortyModel(
     @SerializedName("name")
     val name: String,
     @SerializedName("url")
-    val url: String
-)
+    val url: String,
+    @SerializedName("image")
+    val image: String,
+    @SerializedName("id")
+    val id: Int)

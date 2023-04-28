@@ -1,5 +1,6 @@
 package com.example.rickmorty.utils.api
 
+import com.example.rickmorty.utils.dto.RickMortyModel
 import com.example.rickmorty.utils.dto.RickMortyResponseBody
 import retrofit2.Call
 import retrofit2.Response
@@ -17,4 +18,10 @@ interface ApiService {
         // aqui colocaremos los parametros para las peticiones que se realizan, en este caso en particular se manda un path para agregarlo a la URL base(https://pokeapi.co/api/v2/{path})
         @Url path: String
     ) : Response<RickMortyResponseBody> // obtenemos el cuerpo del resultado de la petición a traves de un dto(data transfer object), que nos permitira procesar de manera mas sencilla la respuesta
+
+    @GET
+    suspend fun getDetailCharacter(
+        @Url path: String
+    ) : Response<RickMortyModel>
+
 }

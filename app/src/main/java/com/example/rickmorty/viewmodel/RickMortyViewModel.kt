@@ -15,6 +15,7 @@ class RickMortyViewModel  : ViewModel(){
     val rickmortyList = MutableLiveData<Resource<List<RickMortyModel>>>()
     val rickmortyListEpisodes = MutableLiveData<Resource<List<RickMortyModel>>>()
     val rickmortyListLocation = MutableLiveData<Resource<List<RickMortyModel>>>()
+    val rickmortyDetail = MutableLiveData<Resource<RickMortyModel>>()
 
     fun getRickMorty(){
         rickmortyList.value =  Resource.loading(null)
@@ -41,6 +42,17 @@ class RickMortyViewModel  : ViewModel(){
             val result = rickmortyRepository.getRickMortyLocation()
             withContext(Dispatchers.Main){
                 rickmortyListLocation.value = result
+            }
+        }
+    }
+
+    fun setSelectCharacter(position: Int) {
+        rickmortyDetail.value =  Resource.loading(null)
+        viewModelScope.launch {
+            val id = rickmortyList.value!!.data!!.get(position).id
+            val result = rickmortyRepository.getCharacter(id)
+            withContext(Dispatchers.Main){
+                rickmortyDetail.value = result
             }
         }
     }
